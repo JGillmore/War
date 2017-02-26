@@ -1,0 +1,22 @@
+{
+  "name": "client",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Jeremy Gillmore <happy12287@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.2",
+    "angular-route": "^1.6.2",
+    "angular-messages": "^1.6.2"
+  }
+}

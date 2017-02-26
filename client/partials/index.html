@@ -1,0 +1,13 @@
+<h3>Choose your play style: <a href='#!/' ng-click='newDeck()'>Aces Low</a> | <a href='#!/' ng-click='newDeck(true)'>Aces High</a></h3>
+
+<div style="width:950px">
+  <img ng-repeat='card in deck.cards | orderBy: ["suit", "value"]' ng-src='{{card.image}}'>
+</div>
+
+<div ng-if='deck.cards'>
+  <h3>Choose your backing: <img src="images/b2fv.png" style='width:30px; height:40px' ng-click='setBack(2)'> <img src="images/b1fv.png" style='width:30px; height:40px' ng-click='setBack(1)'><img src="images/b3fv.png" style='width:30px; height:40px' ng-click='setBack(3)'></h3>
+  <img ng-src='{{deck.back}}'>
+  <div ng-if='deck.back != "images/ec.png"'>
+    <h3>Choose a game: <button ng-click="playGame('war')">War</button></h3>
+  </div>
+</div>

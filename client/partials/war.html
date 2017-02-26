@@ -1,0 +1,25 @@
+<h3 ng-if="deck.cards[0]">The Deck</h3>
+<div ng-if='!dealcardsclicked' style="width:950px">
+  <img ng-repeat='card in deck.cards' ng-src='{{card.image}}'>
+</div>
+<div ng-if='dealcardsclicked && deck.cards[0]' style="width:950px">
+  <img ng-repeat='card in deck.cards' ng-src='{{deck.back}}'>
+</div>
+<div ng-if='deck.cards[0]' style="width:950px" ng-repeat="player in game.players">
+  <h3>{{player.name}}</h3>
+  <img ng-repeat='card in player.hand' ng-src='{{deck.back}}'>
+</div>
+<button ng-if="deck.cards[51]" ng-click='dealCards(0)'>Deal Cards</button>
+<div ng-if='!deck.cards[0]'>
+  <div style="height:250px" class='opponent'>
+    <h3>{{game.players[1].name}} </h3>
+    <img ng-src='{{deck.back}}'> cards in hand {{game.players[1].hand.length}} <img ng-if='game.players[1].wonPile[0]' ng-src='{{game.players[1].wonPile[game.players[1].wonPile.length-1].image}}'><br>
+    <img ng-src='{{game.players[1].playedCard.image}}'> <span ng-if="game.players[0].warPile[2]"><img ng-src="images/b{{deck.back[8]}}pl.png"><img ng-src="images/b{{deck.back[8]}}pl.png"><img ng-src="{{game.players[1].warPile[2].image}}"></span><br>
+  </div>
+  <h1 ng-if='gameOver'>YOU {{gameOver}}</h1>
+  <div style="height:250px" class='player'>
+    <img ng-src='{{game.players[0].playedCard.image}}'> <span ng-if="game.players[0].warPile[2]"><img ng-src="images/b{{deck.back[8]}}pl.png"><img ng-src="images/b{{deck.back[8]}}pl.png"><img ng-src="{{game.players[0].warPile[2].image}}"></span><br>
+    <img ng-src='{{deck.back}}' ng-click='playCard()'> cards in hand {{game.players[0].hand.length}} <img ng-if='game.players[0].wonPile[0]' ng-src='{{game.players[0].wonPile[game.players[0].wonPile.length-1].image}}'>
+    <h3>{{game.players[0].name}} </h3>
+  </div>
+</div>
